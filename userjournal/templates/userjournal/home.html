@@ -1,0 +1,6 @@
+{% extends "userjournal/base.html" %}
+{% block content %}
+    <h2 class="row border-bottom pt-3">Welcom to My Journal App!</h2>
+    <h3 class="row border-bottom pt-3"> A place to put down your thoughts for each day and revisit them anytime you need to. A simple, reliable and easy to use site</h3>
+    <div><a class="nav-link active d-inline" href="{% url 'login' %}">Log In</a>to start journaling or <a class="nav-link active d-inline" href="{% url 'register' %}">Sign Up</a>if you don't already have an account</div>
+{% endblock %}

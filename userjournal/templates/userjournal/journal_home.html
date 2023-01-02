@@ -1,0 +1,32 @@
+{% extends "userjournal/base.html" %}
+{% block content %}
+    <h2 class="row border-bottom pt-3">My Journal..</h2>
+    <a class="row btn btn-outline button-custom" href="{% url 'create' %}">Create New Entry</a>
+    {% for entry in user_entry %}
+    <div class="row">
+        <div class="journal_entries col-md-3">
+        {{ entry.date_added }}
+        </div>
+        <a class="journal_entries col-md-5 a_link" href="{% url 'update' entry.id %}">{{ entry.title }}</a>
+    </div>
+    {% endfor %}
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+               <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+    {% endif %}
+{% endblock %}

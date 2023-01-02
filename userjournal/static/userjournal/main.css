@@ -1,0 +1,33 @@
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.journal_entries {
+      background: #ffffff;
+      padding: 10px 20px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    margin-right: 10px;
+}
+
+.button-custom {
+    background-color: #75a3a3;
+    color: black;
+}
+
+.a_link {
+    background-color: #80a2b3;
+    color: black;
+}
+
+#bg {
+    background-image: url({% static "userjournal/images/photo-1.jpg"%});
+    background-repeat: no-repeat;
+}
